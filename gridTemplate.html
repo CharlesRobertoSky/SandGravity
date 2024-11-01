@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        flex-wrap: wrap;
+        height: 100vh;
+        min-width: 720px;
+      }
+      #wrapper {
+        height: 700px;
+        width: 700px;
+      }
+      .board {
+        width: 100%;
+        height: 100%;
+        background-color: #ccc;
+        display: grid;
+        grid-template-columns: repeat(10, 1fr);
+        grid-template-rows: repeat(10, 1fr);
+        gap: 1px;
+      }
+
+      .square {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #483c32;
+        height: 100%;
+        border-radius: 1px solid blueviolet;
+        cursor: pointer;
+      }
+
+      .square:hover {
+        opacity: 0.9;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="wrapper">
+      <div class="nomecasa"></div>
+      <div class="board"></div>
+    </div>
+  </body>
+  <script>
+    function clickSquare(ev) {
+      const id = ev.target.id.replace('house-', '');
+      alert(`Você clicou na casa ${id}`);
+    }
+
+    const board = document.querySelector('.board');
+
+    const house = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J'];
+
+    for (let i = 0; i < 10; i++) {
+      for (let j = 0; j < 10; j++) {
+        const jnewSquare = document.createElement('div');
+        jnewSquare.classList.add('square');
+        jnewSquare.id = `house-${house[j]}${i}`;
+        jnewSquare.innerHTML = `${house[j]}${i}`;
+        jnewSquare.onclick = clickSquare;
+        board.appendChild(jnewSquare);
+      }
+    }
+  </script>
+</html>

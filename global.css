@@ -1,0 +1,36 @@
+body {
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+
+  background-color: #4b4b4b;
+  justify-content: center;
+  align-content: center;
+  height: 100vh;
+
+  margin: auto;
+}
+
+.display {
+  height: 400px;
+  width: 400px;
+  background-color: #ffffff;
+  display: grid;
+  grid-template-columns: repeat(16, 1fr);
+  grid-template-rows: repeat(16, 1fr);
+  gap: 1px;
+}
+.square {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #8b3918;
+  height: 100%;
+  border-radius: 1px solid blueviolet;
+  cursor: pointer;
+}
+
+.square:hover {
+  opacity: 0.9;
+}
